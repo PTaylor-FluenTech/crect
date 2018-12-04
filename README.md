@@ -44,7 +44,7 @@ YouTube video from [embo++ 2018](https://www.embo.io/) describing the inner work
 
 In the `example` folder a few example projects are setup for the NUCLEO-F411RE board. For example:
 
-* A program that will blink a LED every one seconds using `crect` primitives.
+* A program that will blink a LED every one second using `crect` primitives.
 * An example for how to use `unique_lock` with a data pumping peripheral (for example DMA or a communication interface).
 
 It also contains examples of `crect_system_config.hpp` and `crect_user_config.hpp`, providing references until a documentation is available.
@@ -126,10 +126,10 @@ using J1 = crect::job<
               R1, crect::Rasync            // List of possible resource claims
             >;
 ```
-Each job need to be added to the `user_job_list< Jobs... >` in `crect_user_config.hpp`.
+Each job needs to be added to the `user_job_list< Jobs... >` in `crect_user_config.hpp`.
 
 #### ISR definition
-The ISR definitions available are split in the Peripheral ISRs (I >= 0), and System ISRs (I < 0).
+The ISR definitions available are split into the Peripheral ISRs (I >= 0), and System ISRs (I < 0).
 ```C++
 // Peripheral ISR definition (I >= 0)
 template <crect::details::isr_function_pointer<P, int I>
@@ -194,7 +194,6 @@ For a full example please see `./examples/unique`.
 ```C++
 ```
 
-There is no `unlock`, this is by design.
 #### pend / clear
 `pend` directly sets a job for execution and will be as soon as its priority is the highest, while `clear` removes the job for execution.
 ```C++
@@ -208,7 +207,7 @@ crect::clear(JobToPend_ISR_ID);
 ```
 
 #### async
-Async defers a jobs execution to some specific time.
+Async defers a job's execution to some specific time.
 ```C++
 // Using chrono to relate the system to time, the current max time is somewhere around 1500 years, depending on MCU :)
 using namespace std::chrono_literals;
